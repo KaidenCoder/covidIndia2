@@ -5,7 +5,7 @@ const url = 'https://api.rootnet.in/covid19-in/stats/latest'
 export const fetchData = async () => {
     try {
         const { data } = await (await fetch(url)).json();
-        const modifiedData = [...data.regional]
+        const modifiedData = [...data.regional].sort((a, b) => b.totalConfirmed - a.totalConfirmed)
         return modifiedData;
 
     } catch (error) {

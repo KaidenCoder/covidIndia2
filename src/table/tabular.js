@@ -28,10 +28,12 @@ const Tabular = () => {
                 <Table className={styles.container} aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell className="alert-secondary">State</TableCell>
-                            <TableCell className="alert-warning" align="right">Infected</TableCell>
-                            <TableCell className="alert-success" align="right">Discharged</TableCell>
-                            <TableCell className="alert-danger" align="right">Deaths</TableCell>
+                            <TableCell className="alert alert-secondary">State</TableCell>
+                            <TableCell className="alert alert-warning" align="center">Confirmed</TableCell>
+                            <TableCell className="alert alert-success" align="center">Discharged</TableCell>
+                            <TableCell className="alert alert-danger" align="center">Deaths</TableCell>
+                            <TableCell className="alert alert-primary" align="center">Confirmed Indian</TableCell>
+                            <TableCell className="alert alert-info" align="center">Confirmed Foreign</TableCell>
                         </TableRow>
                     </TableHead>
                     {/* Tabular data displaying data from all states of India */}
@@ -41,9 +43,11 @@ const Tabular = () => {
                                 <TableCell component="th" scope="row">
                                     {e.loc}
                                 </TableCell>
-                                <TableCell style={{ background: 'rgba(255, 241, 194, 0.5)' }} align="right">{e.totalConfirmed}</TableCell>
-                                <TableCell style={{ background: 'rgba(203, 234, 209, 0.5)' }} align="right">{e.discharged}</TableCell>
-                                <TableCell style={{ background: 'rgba(246, 204, 209, 0.5)' }} align="right">{e.deaths}</TableCell>
+                                <TableCell style={{ background: 'rgba(255, 241, 194, 0.5)' }} align="center">{e.totalConfirmed}</TableCell>
+                                <TableCell style={{ background: 'rgba(203, 234, 209, 0.5)' }} align="center">{e.discharged}</TableCell>
+                                <TableCell style={{ background: 'rgba(246, 204, 209, 0.5)' }} align="center">{e.deaths}</TableCell>
+                                <TableCell style={{ background: 'rgba(187, 223, 255, 0.5)' }} align="center">{e.confirmedCasesIndian}</TableCell>
+                                <TableCell style={{ background: 'rgba(192, 233, 239, 0.5)' }} align="center">{e.confirmedCasesForeign}</TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
