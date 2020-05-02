@@ -26,7 +26,7 @@ const Summary = ({ data: { total, discharged, deaths } }) => {
               style={{ fontSize: "18px", textAlign: "center" }}
               gutterBottom
             >
-              Total Infected in India
+              Total Confirmed in India
             </Typography>
             <Typography variant="h5" style={{ textAlign: "center" }}>
               <CountUp start={0} end={total} duration={2.5} separator="," />
