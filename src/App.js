@@ -41,8 +41,11 @@ class App extends React.Component {
           <br></br>
           <Tabular />
         </div>
-        <div className="footer-copyright text-center py-3">© 2020 Copyright:
-    <a href="https://www.linkedin.com/in/khaidemsandip/"> Kurosaki</a>
+
+        <div className="footer-copyright text-center py-3">
+          © 2020 Copyright:
+    <a href="https://www.linkedin.com/in/khaidemsandip/"> Kurosaki. </a>
+       Powered by <a href="https://www.postman.com/">POSTMAN </a>
         </div>
 
       </>

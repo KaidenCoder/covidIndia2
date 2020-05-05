@@ -13,6 +13,29 @@ export const fetchData = async () => {
     }
 }
 
+export const fetchDataRecovered = async () => {
+    try {
+        const { data } = await (await fetch(url)).json();
+        const modifiedData = [...data.regional].sort((a, b) => b.discharged - a.discharged)
+        return modifiedData;
+
+    } catch (error) {
+
+    }
+}
+
+export const fetchDataDeaths = async () => {
+    try {
+        const { data } = await (await fetch(url)).json();
+        const modifiedData = [...data.regional].sort((a, b) => b.deaths - a.deaths)
+        return modifiedData;
+
+    } catch (error) {
+
+    }
+}
+
+
 // Query out the url data which is displayed in summary.jsx
 export const fetchSummary = async () => {
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { fetchData } from "../api/fetchApi";
+import { fetchData, fetchDataRecovered, fetchDataDeaths } from "../api/fetchApi";
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -13,17 +13,64 @@ const Tabular = () => {
 
     const [fetchedState, setFetchedState] = useState([])
 
-    useEffect(() => {
-        const fetchAPIState = async () => {
-            const dailyData = await fetchData()
-            setFetchedState(dailyData)
-            console.log(dailyData)
+    // const effectRender = (dataurl) => {
+    //     return (
+    //         useEffect(() => {
+    //             const fetchAPIState = async () => {
+    //                 const dailyData = await `${dataurl()}`
+    //                 setFetchedState(dailyData)
+    //                 console.log(dailyData)
+    //             }
+
+    //             fetchAPIState()
+    //         }, [])
+    //     )
+    // }
+
+    function renderSwitch(param) {
+        switch (param) {
+            case fetchData:
+                return (
+                    <></>
+                )
+            case fetchDataRecovered:
+                return (
+                    <></>
+                )
+            case fetchDataDeaths:
+                return (
+                    <></>
+                )
+            default:
+                return (
+                    <></>
+                )
         }
+    }
+
+    useEffect(() => {
+        const fetchAPIState = async (clicked) => {
+            if (clicked = 'fetchData') {
+                const dailyData = await fetchData()
+                setFetchedState(dailyData)
+            } else if (clicked = 'fetchDataRecovered') {
+                const dailyData = await fetchDataRecovered()
+                setFetchedState(dailyData)
+            } else if (clicked = 'fetchDataDeaths') {
+                const dailyData = await fetchDataDeaths()
+                setFetchedState(dailyData)
+            } else {
+                const dailyData = await fetchData()
+                setFetchedState(dailyData)
+            }
+            //console.log(dailyData)
+        }
+
         fetchAPIState()
     }, [])
 
-    return (
-        <>
+    function renderData() {
+        return (
             <TableContainer component={Paper}>
                 <Table className={styles.container} aria-label="simple table">
                     <TableHead>
@@ -53,6 +100,16 @@ const Tabular = () => {
                     </TableBody>
                 </Table>
             </TableContainer>
+        )
+    }
+
+    return (
+        <>
+            {/* <button onClick={this.renderSwitch(fetchData).bind()}>Confirmed</button>
+            <button onClick={this.renderSwitch(fetchDataRecovered)}>Recovered</button>
+            <button onClick={this.renderSwitch(fetchDataDeaths)}>Deaths</button> */}
+
+            {renderData()}
         </>
     )
 
