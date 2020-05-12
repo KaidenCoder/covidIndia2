@@ -15,7 +15,7 @@ In the project directory, you can run:
 ### `npm start` || `yarn start`
 
 ### Project Image
-![](src/images/img.png)
+![](src/images/img3.png)
 ![](src/images/img2.png)
 
 Runs the app in the development mode.<br />
