@@ -15,7 +15,8 @@ In the project directory, you can run:
 ### `npm start` || `yarn start`
 
 ### Project Image
-![](src/images/image2.png)
+![](src/images/img.png)
+![](src/images/img2.png)
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
