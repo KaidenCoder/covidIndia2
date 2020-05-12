@@ -1,14 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Card, CardContent, Typography, Grid } from "@material-ui/core";
 import cx from "classnames";
 import styles from "./Summary.module.css";
 import CountUp from "react-countup";
+import { fetchStateWise } from "../api/fetchApi";
 
-const Summary = ({ data: { total, discharged, deaths } }) => {
-  if (!total) {
-    return "Loading...";
-    //   console.log(total);
-  }
+const Summary = () => {
+  // if (!confirmed) {
+  //   return "Loading...";
+  //   //   console.log(total);
+  // }
+
+  const [fetchedState, setFetchedState] = useState([]);
+
+  useEffect(() => {
+    const fetchAPIState = async (clicked) => {
+      const stateData = await fetchStateWise();
+      setFetchedState(stateData);
+      //console.log(dailyData)
+    };
+
+    fetchAPIState();
+  }, []);
   return (
     <div className={styles.container}>
       <Grid container spacing={3} justify="center">
@@ -29,7 +42,15 @@ const Summary = ({ data: { total, discharged, deaths } }) => {
               Total Confirmed in India
             </Typography>
             <Typography variant="h5" style={{ textAlign: "center" }}>
-              <CountUp start={0} end={total} duration={2.5} separator="," />
+              {fetchedState.slice(0, 1).map((e, i) => (
+                <CountUp
+                  key={i}
+                  start={0}
+                  end={parseInt(e.confirmed)}
+                  duration={2.5}
+                  separator=","
+                />
+              ))}
             </Typography>
           </CardContent>
         </Grid>
@@ -50,12 +71,15 @@ const Summary = ({ data: { total, discharged, deaths } }) => {
               Total Recovered in India
             </Typography>
             <Typography variant="h5" style={{ textAlign: "center" }}>
-              <CountUp
-                start={0}
-                end={discharged}
-                duration={2.5}
-                separator=","
-              />
+              {fetchedState.slice(0, 1).map((e, i) => (
+                <CountUp
+                  key={i}
+                  start={0}
+                  end={parseInt(e.recovered)}
+                  duration={2.5}
+                  separator=","
+                />
+              ))}
             </Typography>
           </CardContent>
         </Grid>
@@ -77,7 +101,15 @@ const Summary = ({ data: { total, discharged, deaths } }) => {
               Total Deaths in India
             </Typography>
             <Typography variant="h5" style={{ textAlign: "center" }}>
-              <CountUp start={0} end={deaths} duration={2.5} separator="," />
+              {fetchedState.slice(0, 1).map((e, i) => (
+                <CountUp
+                  key={i}
+                  start={0}
+                  end={parseInt(e.deaths)}
+                  duration={2.5}
+                  separator=","
+                />
+              ))}
             </Typography>
             {/* <Typography variant="body2">deaths</Typography> */}
           </CardContent>
