@@ -50,14 +50,14 @@ const App = () => {
       {/* <p style={{ textAlign: 'center', fontSize: '14px' }} className="card-subtitle mb-2 text-muted">Check Ne-India cases<a href="https://neindiacovid19.netlify.app/"> (Link)</a></p> */}
 
       <div style={{ background: 'rgba(192,192,192,0.1)', marginTop: 20 }} className="alert container" role="alert">
-        <h5 style={{ color: 'rgba(0,0,0,0.4)', fontFamily: 'Helvetica Narrow', fontWeight: 100 }}>India Time Series Graph</h5>
+        <h5 style={{ color: 'rgba(0,0,0,0.4)', fontFamily: 'Helvetica Narrow', fontWeight: 300 }}>India Time Series Graph</h5>
       </div>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <Charts />
       </div>
       <Summary />
       <div className="alert container" style={{ background: 'rgba(192,192,192,0.11)' }} role="alert">
-        <h5 style={{ color: 'rgba(0,0,0,0.4)', fontFamily: 'Helvetica Narrow' }}>States Data Table</h5>
+        <h5 style={{ color: 'rgba(0,0,0,0.4)', fontFamily: 'Helvetica Narrow', fontWeight: 300 }}>States Data Table</h5>
       </div>
       <div className="container" >
         <br></br>
